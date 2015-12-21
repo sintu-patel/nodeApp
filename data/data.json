@@ -1,8 +1,15 @@
 {
 	"title": "EBOOK",
+	"logoImg": "images/logo.png",
+	"helpImg": "images/help.png",
+	"closeImg": "images/close.png",
+	"playImg": "images/play.png",
+	"prevImg": "images/prev.png",
+	"nextImg": "images/next.png",
 	"courceTitle": "Node JS Introduction",
 	"jsonData": [{
 		"title": "Responsive Design",
+		"contentImg": "images/css3.png",
 		"content": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates a rapid development of Node based Web applications. Following are some of the core features of Express framework:Firstly, install the Express framework globally using npm so that it can be used to create web application using node terminal.Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express:Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express:Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express:Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express: Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express:Above command saves installation locally in node_modules directory and creates a directory express inside node_modules. There are following important modules which you should install along with express:"
 	}
 ]}

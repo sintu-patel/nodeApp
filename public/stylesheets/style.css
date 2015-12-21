@@ -381,3 +381,12 @@ table tr td{
 	right:0px;
 	top:0px;
 }
+
+.main_content p {
+  color: #333;
+  font-family: "Comic Sans MS";
+  font-size: 40px;
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 15px;
+}

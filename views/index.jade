@@ -3,31 +3,34 @@ block content
 	div.container
 		div.header
 			div.logo
-				img(src='images/logo.png')
+				img(src='#{logoImg}')
 
 			div.course_command
 				a.help(href='#')
-					img(src='images/help.png')
+					img(src='#{helpImg}')
 				a.close(href='#')
-					img(src='images/close.png')
+					img(src='#{closeImg}')
 
 		div#home_content
 			div.title #{courceTitle}
 			div.content
-				div.main_content #{jsonData[0].content}
+				each data in jsonData
+					div.main_content
+						p #{data.content}
 
 				div.right_section
 					div.transcript
-						img(src='images/css3.png')
+						each data in jsonData
+							img(src='#{data.contentImg}')
 
 			div.footer
 				div.controls
 					div#play
-						img(src='images/play.png')
+						img(src='#{playImg}')
 					div#prev
-						img(src='images/prev.png')
+						img(src='#{prevImg}')
 					div#next
-						img(src='images/next.png')
+						img(src='#{nextImg}')
 					div#seekbar
 						div#progress
 					div#pagination 1 of 3 Pages
