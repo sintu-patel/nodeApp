@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 		'pageNo': pageNo
 	}, function(e, appData) {
 		res.render('ebook', {
-			"ctPage":cPage,
 			"ebookData": appData
 		});
 	});
