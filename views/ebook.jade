@@ -1,0 +1,46 @@
+extends layout
+block content
+	- var pageData = ebookData[0]
+	- var pageStyle = {"logoImg": "images/logo.png","helpImg": "images/help.png","closeImg": "images/close.png","playImg": "images/play.png","prevImg": "images/prev.png","nextImg": "images/next.png"}
+	div.container
+		div.header
+			div.logo
+				img(src='#{pageStyle.logoImg}')
+
+			div.course_command
+				a.help(href='#')
+					img(src='#{pageStyle.helpImg}')
+				a.close(href='#')
+					img(src='#{pageStyle.closeImg}')
+
+		div#home_content
+			div.title #{courceTitle}
+			div.content
+				each data in pageData.lesson
+					div.main_content
+						p #{data.content}
+
+				div.right_section
+					div.transcript
+						each data in pageData.lesson
+							img(src='#{data.image}')
+
+			div.footer
+				div.controls
+					div#play
+						img(src='#{pageStyle.playImg}')
+					div#prev
+						img(src='#{pageStyle.prevImg}')
+					div#next
+						img(src='#{pageStyle.nextImg}')
+					div#seekbar
+						div#progress
+					div#pagination 1 of 3 Pages
+
+					div#menu
+						div#current
+						ul
+							li.lesson
+								a(href='#')
+									span #{courceTitle}
+

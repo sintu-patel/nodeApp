@@ -4,11 +4,10 @@ var router = express.Router();
 /* Get Data. */
 router.get('/', function(req, res, next) {
 	var db = req.db;
-	var collection = db.get('ebookData');
-	console.log(collection);
-	collection.find({"title" : "Hello introduction"}, function(e, docs) {
-		console.log(docs);
-		res.json(docs);
+	var collection = db.get('appT');
+	collection.find({}, function(e, appData) {
+		// res.json({"ebookData": appData});
+		res.render('ebook', {"ebookData": appData});
 	});
 
 });
