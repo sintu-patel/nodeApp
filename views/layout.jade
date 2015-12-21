@@ -1,7 +1,9 @@
 doctype html
 html
   head
-    title= ebookData[0].title
+  - var pageStyle = {"title":"ebook", "logoImg": "images/logo.png","helpImg": "images/help.png","closeImg": "images/close.png","playImg": "images/play.png","prevImg": "images/prev.png","nextImg": "images/next.png"}
+
+    title= pageStyle.title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content

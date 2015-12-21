@@ -3,11 +3,20 @@ var router = express.Router();
 
 /* Get Data. */
 router.get('/', function(req, res, next) {
+	var pageNo = 1;
+	if (req.param('pageNo')) {
+		pageNo = req.param('pageNo');
+	}
+	var cPage = parseInt(pageNo);
 	var db = req.db;
-	var collection = db.get('appT');
-	collection.find({}, function(e, appData) {
-		// res.json({"ebookData": appData});
-		res.render('ebook', {"ebookData": appData});
+	var collection = db.get('book');
+	collection.find({
+		'pageNo': pageNo
+	}, function(e, appData) {
+		res.render('ebook', {
+			"ctPage":cPage,
+			"ebookData": appData
+		});
 	});
 
 });
