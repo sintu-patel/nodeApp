@@ -45,10 +45,11 @@ block content
 
 					div#menu
 						div#current #{currentPageData.pageTitle}
-						ul
+						ul#lesson_list
 							each data in pageData
 								li.lesson
-									a(href='#')
+									a(href='/ebook?pageNo=#{test}')
 										span #{data.pageTitle}
 					div#open_menu
+	script(type='text/javascript', src='/javascripts/javascript.js')
 
