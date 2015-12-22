@@ -5,7 +5,8 @@ block content
 	- var pageNo = currentPage + 1;
 	- var currentPageData = pageData[currentPage]
 	- var total = 6
-	- var progressBarWidth = pageNo / total
+	- var test = cPage
+	- var progressBarWidth = test / total
 	div.container
 		div.header
 			div.logo
@@ -18,7 +19,7 @@ block content
 					img(src='#{pageStyle.closeImg}')
 
 		div#home_content
-			div.title #{currentPageData.pageTitle}
+			div.title #{currentPageData.pageTitle} #{test}
 			div.content
 				div.main_content
 					div!= currentPageData.content
@@ -33,9 +34,11 @@ block content
 						a(href='/ebook?pageNo=1')
 							img(src='#{pageStyle.playImg}')
 					div#prev
-						img(src='#{pageStyle.prevImg}')
+						a(href='/ebook?pageNo=#{test - 1}')
+							img(src='#{pageStyle.prevImg}')
 					div#next
-						img(src='#{pageStyle.nextImg}')
+						a(href='/ebook?pageNo=#{test + 1}')
+							img(src='#{pageStyle.nextImg}')
 					div#seekbar
 						div#progress(style='width: #{progressBarWidth*100}%;')
 					div#pagination #{pageNo} of #{total} Pages

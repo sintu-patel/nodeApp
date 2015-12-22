@@ -3,9 +3,10 @@ var router = express.Router();
 
 /* Get Data. */
 router.get('/', function(req, res, next) {
-	var pageNo = 1;
-	if (req.param('pageNo')) {
-		pageNo = req.param('pageNo');
+	var pageNo;
+	pageNo = req.param('pageNo');
+	if (pageNo == undefined) {
+		pageNo = '1';
 	}
 	var cPage = parseInt(pageNo);
 	var db = req.db;
@@ -14,7 +15,8 @@ router.get('/', function(req, res, next) {
 		'pageNo': pageNo
 	}, function(e, appData) {
 		res.render('ebook', {
-			"ebookData": appData
+			'cPage': cPage,
+			'ebookData': appData
 		});
 	});
 
