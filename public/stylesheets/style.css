@@ -11,11 +11,11 @@ body{
 	clear:both;
 }
 
-.f_left{
+.f-left{
 	float:left;
 }
 
-.f_right{
+.f-right{
 	float:right;
 }
 
@@ -28,7 +28,7 @@ p{
 h1{
 	font-size:18px;
 	font-weight:bold;
-	color: #333;
+	color: .333;
 	font-family: "Comic Sans MS";
 	font-style: italic;
 	line-height: 1.4;
@@ -63,7 +63,7 @@ div{
 	height:600px;
 	background:#fafafa;
 	margin:0px auto;
-	border:1px solid #02131a;
+	border:1px solid .02131a;
 	position:relative;
 }
 
@@ -84,29 +84,29 @@ div{
 	max-height:100%;
 }
 
-.course_command{
+.course-command{
 	margin:13px 0px 0px 0px;
 	float:right;
 	width:105px;
 	height:64px;
 }
 
-.course_command .close{
+.course-command .close{
 	width:20px;
 	height:20px;
 }
 
-.course_command .close img{
+.course-command .close img{
 	cursor:pointer;
 }
 
-.course_command .help{
+.course-command .help{
 	width:20px;
 	height:20px;
 
 }
 
-.course_command .help img{
+.course-command .help img{
 	cursor:pointer;
 }
 
@@ -128,22 +128,22 @@ div{
 	padding:20px;
 }
 
-.main_content{
+.main-content{
 	width:560px;
 	float:left;
 	height:340px;
 	background:#fff;
 	border-radius:5px;
-	box-shadow:0px 0px 5px #ccc;
+	box-shadow:0px 0px 5px .ccc;
 	padding:20px;
 	overflow:auto;
 }
 
-.main_content p{
+.main-content p{
 	margin-top:15px;
 }
 
-.right_section{
+.right-section{
 	width:280px;
 	float:right;
 	height:360px;
@@ -161,41 +161,41 @@ div{
 	padding-top:5px;
 }
 
-#play{
+.play{
 	width:60px;
 	float:left;
 }
 
-#play img{
+.play img{
 	width:55px;
 	cursor:pointer;
 }
 
 
-#prev{
+.prev{
 	width:40px;
 	float:left;
 	margin:12px 0px 0px 10px;
 }
 
-#prev img{
+.prev img{
 	width:35px;
 	cursor:pointer;
 }
 
 
-#next{
+.next{
 	width:40px;
 	float:left;
 	margin:12px 0px 0px 10px;
 }
 
-#next img{
+.next img{
 	width:35px;
 	cursor:pointer;
 }
 
-#seekbar{
+.seekbar{
 	width:300px;
 	height:16px;
 	background:#fff;
@@ -204,13 +204,13 @@ div{
 	overflow:hidden;
 }
 
-#progress{
+.progress{
 	height:16px;
 	width:20%;
 	background:#1978ce;
 }
 
-#pagination{
+.pagination{
 	width:70px;
 	height:16px;
 	float:left;
@@ -219,7 +219,7 @@ div{
 	font-weight:bold;
 }
 
-#menu{
+.menu{
 	width:260px;
 	height:25px;
 	background:#fff;
@@ -228,19 +228,19 @@ div{
 	position:relative;
 }
 
-#menu > ul {
+.menu > ul {
 	position:absolute;
 	z-index:999;
 	bottom:26px;
 	background:#fff;
 	width:280px;
 	padding:0px;
-	border:5px solid #000;
+	border:5px solid .000;
 	max-height:300px;
 	overflow-y:scroll;
 }
 
-#menu > ul > li > a{
+.menu > ul > li > a{
 	display:block;
 	background:#064966;
 	padding:8px 5px;
@@ -250,40 +250,40 @@ div{
 	font-weight:bold;
 }
 
-#menu ul li a:hover{
+.menu ul li a:hover{
 	background:#11378F;
 }
 
-#menu ul li a.active{
+.menu ul li a.active{
 	background:#11378F;
 }
 
-#menu > ul  > li  > ul > li > a{
+.menu > ul  > li  > ul > li > a{
 	display:block;
 	background:#1978CE;
 	padding:5px;
 	text-decoration:none;
 	font-size:12px;
 	color:#fff;
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid .ccc;
 	padding-left:15px;
 }
 
-#open_menu{
+.open-menu{
 	width:30px;
 	height:25px;
-	background:#000 url(../images/up_arrow.png) no-repeat 5px 3px;
+	background:#000 url(../images/up-arrow.png) no-repeat 5px 3px;
 	float:left;
 	margin:17px 0px 0px 0px;
 	overflow:hidden;
 	cursor:pointer;
 }
 
-#open_menu.active{
-	background:#000 url(../images/down_arrow.png) no-repeat 5px 3px;
+.open-menu.active{
+	background:#000 url(../images/down-arrow.png) no-repeat 5px 3px;
 }
 
-#current{
+.current{
 	font-size:12px;
 	font-weight:bold;
 	color:#000;
@@ -293,7 +293,7 @@ div{
 table{
 	margin:10px 0px 0px 0px;
 	border-collapse:collapse;
-	border:1px solid #ccc;
+	border:1px solid .ccc;
 }
 
 table tr th{
@@ -302,7 +302,7 @@ table tr th{
 	font-weight:bold;
 	color:#fff;
 	border-collapse:collapse;
-	border:1px solid #ccc;
+	border:1px solid .ccc;
 	padding:5px;
 }
 
@@ -310,7 +310,7 @@ table tr td{
 	font-size:12px;
 	color:#333;
 	border-collapse:collapse;
-	border:1px solid #ccc;
+	border:1px solid .ccc;
 	padding:5px;
 }
 
@@ -325,10 +325,10 @@ table tr td{
 	display: none;
 }
 
-#dialog{
+.dialog{
 	background:#1978CE;
 	z-index:9999;
-	border:5px solid #000;
+	border:5px solid .000;
 	border-radius:5px;
 	position:absolute;
 	left:260px;
@@ -340,17 +340,17 @@ table tr td{
 	padding:70px;
 }
 
-#start_content{
+.start-content{
 	background:#ccc;
 	padding:130px 0px;
 	display:none;
 }
 
-#splash{
+.splash{
 	background:#4A00C1;
 	width:250px;
 	height:250px;
-	border:5px solid #000;
+	border:5px solid .000;
 	border-radius:250px;
 	color:#fff;
 	margin:0px auto;
@@ -359,18 +359,18 @@ table tr td{
 	line-height:24px;
 }
 
-#splash_1{
+.splash-1{
 	padding:50px 0px 0px 0px;
 	text-align:center;
 	text-align:center;
 }
 
 
-#splash_2{
+.splash-2{
 	padding:20px 0px 0px 10px;
 	text-align:center;
 }
-#splash_3{
+.splash-3{
 	padding:30px 0px 0px 10px;
 	text-align:center;
 	font-weight:normal;
@@ -385,8 +385,8 @@ table tr td{
 	top:0px;
 }
 
-.main_content p {
-  color: #333;
+.main-content p {
+  color: .333;
   font-family: "Comic Sans MS";
   font-size: 18px;
   font-style: italic;

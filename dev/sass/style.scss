@@ -1,9 +1,11 @@
+@charset "utf-8";
 @import 'compass/css3';
+@import 'base/reset';
+@import 'base/fonts';
 @import 'base/colors';
 @import 'mixins/mixins';
-
 @import 'modules/header';
+@import 'modules/main';
 @import 'modules/nav';
-@import 'modules/image-module';
 @import 'modules/footer';
 

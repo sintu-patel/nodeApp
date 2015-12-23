@@ -2,45 +2,45 @@ extends layout
 block content
 	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
 		div.header
-			div.logo
+			div.logo.float-left
 				img(src='#{pageStyle.logoImg}')
 
-			div.course_command
+			div.course-command.float-right
 				a.help(href='#')
 					img(src='#{pageStyle.helpImg}')
 				a.close(href='#')
 					img(src='#{pageStyle.closeImg}')
 
-		div#home_content
+		div.home-content
 			div.title {{pageTitle}}
 			div.content
-				div.main_content
+				div.main-content.float-left
 					div(data-ng-bind-html="pageContent | dataAsHtml")
 
-				div.right_section
+				div.right-section.float-right
 					div.transcript
 						img(src='{{pageImage}}')
 
 			div.footer
 				div.controls
-					div#play
+					div.play.float-left
 						div(data-ng-click='showPage("play")')
 							img(src='#{pageStyle.playImg}')
-					div#prev
+					div.prev.float-left
 						div(data-ng-click="showPage('prevPage')")
 							img(src='#{pageStyle.prevImg}')
-					div#next
+					div.next.float-left
 						div(data-ng-click="showPage('nextPage')")
 							img(src='#{pageStyle.nextImg}')
-					div#seekbar
-						div#progress(style='width: {{progress}};')
-					div#pagination {{currentPage}} of {{totalPage}} Pages
+					div.seekbar.float-left
+						div.progress(style='width: {{progress}};')
+					div.pagination.float-left {{currentPage}} of {{totalPage}} Pages
 
-					div#menu
-						div#current {{pageTitle}}
-						ul#lesson_list(data-ng-show="menuState == 'visible'")
+					div.menu.float-left
+						div.current {{pageTitle}}
+						ul.lesson-list(data-ng-show="menuState == 'visible'")
 								li.lesson
 									a(href='/ebook?pageNo=test')
 										span data.pageTitle
-					div#open_menu(data-ng-click='toggleMenu()')
+					div.open-menu.float-left(data-ng-click='toggleMenu()')
 

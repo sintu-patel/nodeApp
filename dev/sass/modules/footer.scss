@@ -1,3 +1,61 @@
-footer {
-	background: $color-red;
+.footer{
+	height: 60px;
+	background: $color-dark-blue;
+	padding: 0 20px;
+}
+
+.controls{
+	padding-top:5px;
+
+	.play{
+		width:60px;
+
+		img{
+			width:55px;
+			cursor:pointer;
+		}
+	}
+
+	.prev{
+		width: 40px;
+		margin: 12px 0 0 10px;
+
+		img{
+			width:35px;
+			cursor:pointer;
+		}
+	}
+
+
+	.next{
+		width: 40px;
+		margin: 12px 0 0 10px;
+
+		img{
+			width: 35px;
+			cursor: pointer;
+		}
+	}
+
+	.seekbar{
+		width: 300px;
+		height: 16px;
+		background: $color-white;
+		margin: 21px 0px 0px 15px;
+		overflow: hidden;
+	}
+
+	.progress{
+		height: 16px;
+		width: 20%;
+		background: $color-lighter-blue;
+	}
+
+	.pagination{
+		width: 70px;
+		height: 16px;
+		margin: 22px 0 0 30px;
+		color: $color-white;
+		font-weight: bold;
+	}
 }

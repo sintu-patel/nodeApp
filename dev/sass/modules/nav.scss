@@ -1,3 +1,69 @@
-nav {
-	background: $color-red;
+.menu{
+	width: 260px;
+	height: 25px;
+	background: $color-white;
+	margin: 17px 0 0 15px;
+	position: relative;
+
+	> ul {
+		position: absolute;
+		z-index: 999;
+		bottom: 26px;
+		background: $color-white;
+		width: 280px;
+		padding: 0;
+		border: 5px solid $color-black;
+		max-height: 300px;
+		overflow-y: scroll;
+
+		li {
+			a:hover.
+			a.acitve {
+				background:#11378F;
+			}
+		}
+
+		> li {
+			> a {
+				display: block;
+				background: $color-dark-blue;
+				padding: 8px 5px;
+				text-decoration: none;
+				font-size: 2px;
+				color: $color-white;
+				font-weight: bold;
+			}
+
+			> ul > li > a{
+				display: block;
+				background: $color-lighter-blue;
+				padding: 5px;
+				text-decoration: none;
+				font-size: 12px;
+				color: $color-white;
+				border-bottom: 1px solid $color-light-gray;
+				padding-left: 15px;
+			}
+		}
+	}
+}
+
+.open-menu{
+	width: 30px;
+	height: 25px;
+	background: $color-black url(../images/up_arrow.png) no-repeat 5px 3px;
+	margin: 17px 0 0 0;
+	overflow: hidden;
+	cursor: pointer;
+
+	&.active{
+		background: $color-black url(../images/down_arrow.png) no-repeat 5px 3px;
+	}
+}
+
+.current{
+	font-size: 12px;
+	font-weight: bold;
+	color: $color-black;
+	padding: 5px;
 }
