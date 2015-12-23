@@ -9,5 +9,4 @@ menuButton.onclick = function() {
 		lessonList.style.display = 'none';
 		hidden = true;
 	}
-
-}
+};

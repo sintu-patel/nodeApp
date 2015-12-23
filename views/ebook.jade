@@ -1,13 +1,6 @@
 extends layout
 block content
-	- var pageData = ebookData
-	- var currentPage = 0
-	- var pageNo = currentPage + 1;
-	- var currentPageData = pageData[currentPage]
-	- var total = 6
-	- var test = cPage
-	- var progressBarWidth = test / total
-	div.container
+	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
 		div.header
 			div.logo
 				img(src='#{pageStyle.logoImg}')
@@ -19,37 +12,35 @@ block content
 					img(src='#{pageStyle.closeImg}')
 
 		div#home_content
-			div.title #{currentPageData.pageTitle} #{test}
+			div.title {{pageTitle}}
 			div.content
 				div.main_content
-					div!= currentPageData.content
+					div(data-ng-bind-html="pageContent | dataAsHtml")
 
 				div.right_section
 					div.transcript
-						img(src='#{currentPageData.img}')
+						img(src='{{pageImage}}')
 
 			div.footer
 				div.controls
 					div#play
-						a(href='/ebook?pageNo=1')
+						div(data-ng-click='showPage("play")')
 							img(src='#{pageStyle.playImg}')
 					div#prev
-						a(href='/ebook?pageNo=#{test - 1}')
+						div(data-ng-click="showPage('prevPage')")
 							img(src='#{pageStyle.prevImg}')
 					div#next
-						a(href='/ebook?pageNo=#{test + 1}')
+						div(data-ng-click="showPage('nextPage')")
 							img(src='#{pageStyle.nextImg}')
 					div#seekbar
-						div#progress(style='width: #{progressBarWidth*100}%;')
-					div#pagination #{test} of #{total} Pages
+						div#progress(style='width: {{progress}};')
+					div#pagination {{currentPage}} of {{totalPage}} Pages
 
 					div#menu
-						div#current #{currentPageData.pageTitle}
-						ul#lesson_list
-							each data in pageData
+						div#current {{pageTitle}}
+						ul#lesson_list(data-ng-show="menuState == 'visible'")
 								li.lesson
-									a(href='/ebook?pageNo=#{test}')
-										span #{data.pageTitle}
-					div#open_menu
-	script(type='text/javascript', src='/javascripts/javascript.js')
+									a(href='/ebook?pageNo=test')
+										span data.pageTitle
+					div#open_menu(data-ng-click='toggleMenu()')
 

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var ebook = require('./routes/ebook');
+var getpage = require('./routes/getpage');
 
 var app = express();
 
@@ -35,7 +36,7 @@ app.use(function(req, res, next){
 
 app.use('/', routes);
 app.use('/ebook', ebook);
-app.use('/ebook?pageNo=', ebook);
+app.use('/getpage', getpage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
