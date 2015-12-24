@@ -43,3 +43,12 @@ gulp.task('concatVendorJS', function() {
 		.pipe(uglify())
 		.pipe(gulp.dest('public/javascripts/vendor'));
 });
+
+gulp.task('copyImageFolder', function() {
+	gulp.src('dev/images/*.{jpg,png,gif}')
+		.pipe(gulp.dest('public/images'));
+});
+
+gulp.task('watch', function() {
+	gulp.watch(['dev/**/*'], ['compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
+});
