@@ -21,11 +21,11 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 			$scope.currentPage = 1;
 		}
 
-		if ($event === 'prevPage') {
+		else if ($event === 'prevPage') {
 			$scope.currentPage = $scope.currentPage === 1 ? $scope.totalPage : $scope.currentPage - 1;
 		}
 
-		if ($event === 'nextPage') {
+		else if ($event === 'nextPage') {
 			$scope.currentPage = $scope.currentPage === $scope.totalPage ? 1 : $scope.currentPage + 1;
 		}
 
