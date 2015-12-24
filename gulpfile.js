@@ -44,11 +44,22 @@ gulp.task('concatVendorJS', function() {
 		.pipe(gulp.dest('public/javascripts/vendor'));
 });
 
+// Copy images from dev folder to public folder
 gulp.task('copyImageFolder', function() {
 	gulp.src('dev/images/*.{jpg,png,gif}')
 		.pipe(gulp.dest('public/images'));
 });
 
+// Scslint task
+var scsslint = require('gulp-scss-lint');
+// Scsslint
+gulp.task('scssLint', function() {
+	return gulp.src('dev/**/*.scss')
+		.pipe(scsslint({
+			'config': 'scss-lint.yml'
+		}));
+});
+
 gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
+	gulp.watch(['dev/**/*'], ['scssLint', 'compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
 });

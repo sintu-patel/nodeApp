@@ -1,54 +1,54 @@
-.menu{
-	width: 260px;
-	height: 25px;
+.menu {
 	background: $color-white;
+	height: 25px;
 	margin: 17px 0 0 15px;
 	position: relative;
+	width: 260px;
 
-	> ul {
-		position: absolute;
-		z-index: 999;
-		bottom: 26px;
+	ul {
 		background: $color-white;
-		width: 280px;
-		padding: 0;
 		border: 5px solid $color-black;
+		bottom: 26px;
 		max-height: 300px;
 		overflow-y: scroll;
+		padding: 0;
+		position: absolute;
+		width: 280px;
+		z-index: 999;
 
-		> li {
-			display: block;
+		li {
 			background: $color-dark-blue;
+			color: $color-white;
+			cursor: pointer;
+			display: block;
+			font-weight: bold;
 			padding: 8px 5px;
 			text-decoration: none;
-			color: $color-white;
-			font-weight: bold;
-			cursor: pointer;
+		}
 
-			&:hover,
-			&.acitve {
-				background:#11378F;
-			}
+		li:hover,
+		.active {
+			background: $color-navy-blue;
 		}
 	}
 }
 
-.open-menu{
-	width: 30px;
-	height: 25px;
-	background: $color-black url(../images/up_arrow.png) no-repeat 5px 3px;
-	margin: 17px 0 0 0;
-	overflow: hidden;
+.open-menu {
+	background: $color-black url($image-path + 'up_arrow.png') no-repeat 5px 3px;
 	cursor: pointer;
+	height: 25px;
+	margin: 17px 0 0;
+	overflow: hidden;
+	width: 30px;
 
-	&.active{
-		background: $color-black url(../images/down_arrow.png) no-repeat 5px 3px;
+	&.active {
+		background: $color-black url($image-path + 'down_arrow.png') no-repeat 5px 3px;
 	}
 }
 
-.current{
+.current {
+	color: $color-black;
 	font-size: 12px;
 	font-weight: bold;
-	color: $color-black;
 	padding: 5px;
 }

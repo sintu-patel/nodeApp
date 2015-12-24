@@ -40,7 +40,7 @@ block content
 						div.current {{pageTitle}}
 						ul.lesson-list(data-ng-show="menuState == 'visible'")
 							each lesson in appData
-								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"acitve": currentPage == #{lesson.pageNo}}')
+								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"active": currentPage == #{lesson.pageNo}}')
 									span #{lesson.pageTitle}
-					div.open-menu.float-left(data-ng-click='toggleMenu()')
+					div.open-menu.float-left(data-ng-click='toggleMenu()' data-ng-class='{"active": menuState == "visible"}')
 

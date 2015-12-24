@@ -1,22 +1,22 @@
-.header{
-	height: 80px;
+.header {
 	background: $color-dark-blue;
+	height: 80px;
 	padding: 0 20px;
 
-	.logo{
-		width: 240px;
+	.logo {
 		height: 63px;
+		width: 240px;
 	}
 }
 
-.course-command{
-	margin: 13px 0 0 0;
-	width: 105px;
+.course-command {
 	height: 64px;
+	margin: 13px 0 0;
+	width: 105px;
 
 	.close,
-	.help{
-		width: 20px;
+	.help {
 		height: 20px;
+		width: 20px;
 	}
 }
