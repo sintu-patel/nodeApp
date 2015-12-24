@@ -1,7 +1,4 @@
 ebookApp.controller('ebookController', function($scope, $http, $sce) {
-	$scope.pageTitle = 'Hello This is pintu';
-	$scope.pageContent = 'Hello this is content';
-	$scope.pageImage = 'images/css3.png';
 	$scope.currentPage = 1;
 	$scope.totalPage = 6;
 
@@ -30,6 +27,10 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 
 		if ($event === 'nextPage') {
 			$scope.currentPage = $scope.currentPage === $scope.totalPage ? 1 : $scope.currentPage + 1;
+		}
+
+		else {
+			$scope.currentPage = parseInt($event, 10);
 		}
 
 		$scope.ebookData();

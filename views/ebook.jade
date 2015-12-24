@@ -6,9 +6,9 @@ block content
 				img(src='#{pageStyle.logoImg}')
 
 			div.course-command.float-right
-				a.help(href='#')
+				a.help(href='https://github.com/sintu-patel/nodeApp')
 					img(src='#{pageStyle.helpImg}')
-				a.close(href='#')
+				a.close(href='https://github.com/sintu-patel/nodeApp')
 					img(src='#{pageStyle.closeImg}')
 
 		div.home-content
@@ -39,8 +39,8 @@ block content
 					div.menu.float-left
 						div.current {{pageTitle}}
 						ul.lesson-list(data-ng-show="menuState == 'visible'")
-								li.lesson
-									a(href='/ebook?pageNo=test')
-										span data.pageTitle
+							each lesson in appData
+								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"acitve": currentPage == #{lesson.pageNo}}')
+									span #{lesson.pageTitle}
 					div.open-menu.float-left(data-ng-click='toggleMenu()')
 
