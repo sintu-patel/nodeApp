@@ -61,9 +61,10 @@ gulp.task('scssLint', function() {
 
 // Js hint task
 var jshint = require('gulp-jshint');
+var jsFileArray = ['*.js', 'dev/javascripts/components/*.js', 'routes/*.js'];
 // jshint
 gulp.task('jsHint', function() {
-	return gulp.src('dev/javascripts/components/*.js')
+	return gulp.src(jsFileArray)
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter());
 });
@@ -71,7 +72,7 @@ gulp.task('jsHint', function() {
 // JSCS task
 var jscs = require('gulp-jscs');
 gulp.task('jscs', function() {
-	return gulp.src('dev/javascripts/components/*.js')
+	return gulp.src(jsFileArray)
 		.pipe(jscs({
 			'config': '.jscsrc'
 		}))

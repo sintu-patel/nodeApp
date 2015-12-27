@@ -5,11 +5,11 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 	$scope.ebookData = function() {
 		var serviceUrl = '/getpage?pageNo=' + $scope.currentPage;
 		$http.get(serviceUrl)
-			.success(function(response) {
-				$scope.pageTitle = response[0].pageTitle;
-				$scope.pageContent = response[0].content;
-				$scope.pageImage = response[0].img;
-				$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
+		.success(function(response) {
+			$scope.pageTitle = response[0].pageTitle;
+			$scope.pageContent = response[0].content;
+			$scope.pageImage = response[0].img;
+			$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
 		});
 	};
 	$scope.ebookData();

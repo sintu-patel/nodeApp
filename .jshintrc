@@ -14,6 +14,10 @@
 	"eqnull": true,
 	"globals": {
 		"angular":true,
-		"ebookApp":true
+		"ebookApp":true,
+		"require":true,
+		"__dirname":true,
+		"module":true,
+		"JSON":true
 	}
 }

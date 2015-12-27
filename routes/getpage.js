@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 	var pageNo;
 	pageNo = req.param('pageNo');
-	if (pageNo == undefined || pageNo == '0' || pageNo == '7') {
+	if (pageNo === undefined || pageNo === '0' || pageNo === '7') {
 		pageNo = '1';
 	}
 	var db = req.db;
