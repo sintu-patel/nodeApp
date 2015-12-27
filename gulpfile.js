@@ -66,18 +66,20 @@ gulp.task('jsHint', function() {
 	return gulp.src('dev/javascripts/components/*.js')
 		.pipe(jshint({
 			'config': '.jshintrc'
-		}));
+		}))
+		.pipe(jshint.reporter());
 });
 
 // JSCS task
 var jscs = require('gulp-jscs');
-gulp.task('JSCS', function() {
+gulp.task('jscs', function() {
 	return gulp.src('dev/javascripts/components/*.js')
 		.pipe(jscs({
 			'config': '.jscsrc'
-		}));
+		}))
+		.pipe(jscs.reporter());
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['scssLint', 'JSCS', 'jsHint', 'compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
+	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
 });
