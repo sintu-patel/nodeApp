@@ -64,9 +64,7 @@ var jshint = require('gulp-jshint');
 // jshint
 gulp.task('jsHint', function() {
 	return gulp.src('dev/javascripts/components/*.js')
-		.pipe(jshint({
-			'config': '.jshintrc'
-		}))
+		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter());
 });
 

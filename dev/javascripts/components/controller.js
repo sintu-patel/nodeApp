@@ -9,14 +9,13 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 				$scope.pageTitle = response[0].pageTitle;
 				$scope.pageContent = response[0].content;
 				$scope.pageImage = response[0].img;
-				$scope.progress = (($scope.currentPage / $scope.totalPage) * 100 ) + '%';
+				$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
 		});
 	};
 	$scope.ebookData();
 
 	// Make ajax call and show page data
 	$scope.showPage = function($event) {
-		console.log($event);
 		if ($event === 'play') {
 			$scope.currentPage = 1;
 		}

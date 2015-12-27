@@ -13,5 +13,7 @@
 	"boss": true,
 	"eqnull": true,
 	"globals": {
+		"angular":true,
+		"ebookApp":true
 	}
 }
