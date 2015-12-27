@@ -2,43 +2,44 @@ extends layout
 block content
 	div.container
 		div.header
-			div.logo
+			div.logo.float-left
 				img(src='#{logoImg}')
 
-			div.course_command
-				a.help(href='#')
+			div.course-command.float-right
+				a.help(href='.')
 					img(src='#{helpImg}')
-				a.close(href='#')
+				a.close(href='.')
 					img(src='#{closeImg}')
 
-		div#home_content
+		div.home-content
 			div.title #{courceTitle}
 			div.content
 				each data in jsonData
-					div.main_content
+					div.main-content.float-left
 						p #{data.content}
 
-				div.right_section
+				div.right-section.float-right
 					div.transcript
 						each data in jsonData
 							img(src='#{data.contentImg}')
 
 			div.footer
 				div.controls
-					div#play
+					div.play.float-left
 						img(src='#{playImg}')
-					div#prev
+					div.prev.float-left
 						img(src='#{prevImg}')
-					div#next
+					div.next.float-left
 						img(src='#{nextImg}')
-					div#seekbar
-						div#progress
-					div#pagination 1 of 3 Pages
+					div.seekbar.float-left
+						div.progress
+					div.pagination.float-left 1 of 3 Pages
 
-					div#menu
-						div#current
+					div.menu.float-left
+						div.current
 						ul
 							li.lesson
 								a(href='#')
 									span #{courceTitle}
+					div.open-menu
 

@@ -5,5 +5,7 @@ html
 
     title= pageStyle.title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    script(type='text/javascript', src='/javascripts/vendor/angular.min.js')
+    script(type='text/javascript', src='/javascripts/app.js')
+  body(data-ng-app='ebookApp')
     block content

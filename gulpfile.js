@@ -1,55 +1,57 @@
 var gulp = require('gulp');
-var concat = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var compass = require('gulp-compass');
 var minifyCSS = require('gulp-minify-css');
+
+// compiles sass files and makes .css file
+gulp.task('compileSASS', function() {
+	gulp.src('dev/sass/style.scss')
+		.pipe(compass({
+			css: 'public/stylesheets',
+			sass: 'dev/sass/'
+		}))
+		.pipe(minifyCSS())
+		.pipe(gulp.dest('public/stylesheets'));
+});
+
+
+// Concat and minify java script files
+var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var connect = require('gulp-connect');
-var livereload = require('gulp-livereload');
 
-var scsslint = require('gulp-scss-lint');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
-var w3cjs = require('gulp-w3cjs');
-
-var gulpAssemble = require('gulp-assemble');
-var push = require('assemble-push');
-var extname = require('gulp-extname');
-var prettify = require('gulp-prettify');
-
-require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
-
-// Scripts
-gulp.task('javascript', function() {
-	return gulp.src('dev/javascript/*.js')
-		.pipe(concat('javascript.js'))
-		.pipe(gulp.dest('dev/assets/js'))
+// Developer java script files
+gulp.task('concatJS', function() {
+	return gulp.src('dev/javascripts/components/*.js')
+		.pipe(concat('app.js'))
+		.pipe(gulp.dest('public/javascripts'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(uglify())
-		.pipe(gulp.dest('dev/assets/js'));
+		.pipe(gulp.dest('public/javascripts'));
 });
 
-// Sass
-gulp.task('compass', function() {
-	gulp.src('dev/sass/style.scss')
-		.pipe(compass({
-			css: 'dev/assets/css',
-			sass: 'dev/sass/'
+// Vendor Java Script files
+gulp.task('concatVendorJS', function() {
+	return gulp.src('dev/javascripts/vendor/angular.js')
+		.pipe(concat('angular.js'))
+		.pipe(gulp.dest('public/javascripts/vendor'))
+		.pipe(rename({
+			suffix: '.min'
 		}))
-		.pipe(minifyCSS())
-		.pipe(gulp.dest('dev/assets/css'));
+		.pipe(uglify())
+		.pipe(gulp.dest('public/javascripts/vendor'));
 });
 
-gulp.task('copyHtmlFolder', function() {
-	gulp.src('build/dev/pages/*.html')
-		.pipe(gulp.dest('dev'));
+// Copy images from dev folder to public folder
+gulp.task('copyImageFolder', function() {
+	gulp.src('dev/images/*.{jpg,png,gif}')
+		.pipe(gulp.dest('public/images'));
 });
 
-// Scsslint
+// Scslint task
+var scsslint = require('gulp-scss-lint');
 gulp.task('scssLint', function() {
 	return gulp.src('dev/**/*.scss')
 		.pipe(scsslint({
@@ -57,42 +59,26 @@ gulp.task('scssLint', function() {
 		}));
 });
 
+// Js hint task
+var jshint = require('gulp-jshint');
+var jsFileArray = ['*.js', 'dev/javascripts/components/*.js', 'routes/*.js'];
 // jshint
 gulp.task('jsHint', function() {
-	return gulp.src('dev/**/*.js')
-		.pipe(jshint({
-			'config': '.jshintrc'
-		}));
+	return gulp.src(jsFileArray)
+		.pipe(jshint('.jshintrc'))
+		.pipe(jshint.reporter());
 });
 
-// jshint
-gulp.task('jsCs', function() {
-	return gulp.src('dev/**/*.js')
+// JSCS task
+var jscs = require('gulp-jscs');
+gulp.task('jscs', function() {
+	return gulp.src(jsFileArray)
 		.pipe(jscs({
 			'config': '.jscsrc'
-		}));
-});
-
-gulp.task('w3cjs', function() {
-	gulp.src('dev/*.html')
-		.pipe(w3cjs());
-});
-
-gulp.task('connect', function() {
-	connect.server({
-		port: 9000,
-		root: 'dev',
-		livereload: true
-	});
-});
-
-gulp.task('live', function() {
-	gulp.src(['dev/*.html'])
-		.pipe(connect.reload());
+		}))
+		.pipe(jscs.reporter());
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['live', 'compass', 'javascript']);
+	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
 });
-
-gulp.task('startServer', ['connect', 'watch', 'grunt-assemble', 'copyHtmlFolder']);

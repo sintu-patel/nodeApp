@@ -1,55 +1,46 @@
 extends layout
 block content
-	- var pageData = ebookData
-	- var currentPage = 0
-	- var pageNo = currentPage + 1;
-	- var currentPageData = pageData[currentPage]
-	- var total = 6
-	- var test = cPage
-	- var progressBarWidth = test / total
-	div.container
+	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
 		div.header
-			div.logo
+			div.logo.float-left
 				img(src='#{pageStyle.logoImg}')
 
-			div.course_command
-				a.help(href='#')
+			div.course-command.float-right
+				a.help(href='https://github.com/sintu-patel/nodeApp')
 					img(src='#{pageStyle.helpImg}')
-				a.close(href='#')
+				a.close(href='https://github.com/sintu-patel/nodeApp')
 					img(src='#{pageStyle.closeImg}')
 
-		div#home_content
-			div.title #{currentPageData.pageTitle} #{test}
+		div.home-content
+			div.title {{pageTitle}}
 			div.content
-				div.main_content
-					div!= currentPageData.content
+				div.main-content.float-left
+					div(data-ng-bind-html="pageContent | dataAsHtml")
 
-				div.right_section
+				div.right-section.float-right
 					div.transcript
-						img(src='#{currentPageData.img}')
+						img(src='{{pageImage}}')
 
 			div.footer
 				div.controls
-					div#play
-						a(href='/ebook?pageNo=1')
+					div.play.float-left
+						div(data-ng-click='showPage("play")')
 							img(src='#{pageStyle.playImg}')
-					div#prev
-						a(href='/ebook?pageNo=#{test - 1}')
+					div.prev.float-left
+						div(data-ng-click="showPage('prevPage')")
 							img(src='#{pageStyle.prevImg}')
-					div#next
-						a(href='/ebook?pageNo=#{test + 1}')
+					div.next.float-left
+						div(data-ng-click="showPage('nextPage')")
 							img(src='#{pageStyle.nextImg}')
-					div#seekbar
-						div#progress(style='width: #{progressBarWidth*100}%;')
-					div#pagination #{test} of #{total} Pages
+					div.seekbar.float-left
+						div.progress(style='width: {{progress}};')
+					div.pagination.float-left {{currentPage}} of {{totalPage}} Pages
 
-					div#menu
-						div#current #{currentPageData.pageTitle}
-						ul#lesson_list
-							each data in pageData
-								li.lesson
-									a(href='/ebook?pageNo=#{test}')
-										span #{data.pageTitle}
-					div#open_menu
-	script(type='text/javascript', src='/javascripts/javascript.js')
+					div.menu.float-left
+						div.current {{pageTitle}}
+						ul.lesson-list(data-ng-show="menuState == 'visible'")
+							each lesson in appData
+								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"active": currentPage == #{lesson.pageNo}}')
+									span #{lesson.pageTitle}
+					div.open-menu.float-left(data-ng-click='toggleMenu()' data-ng-class='{"active": menuState == "visible"}')
 

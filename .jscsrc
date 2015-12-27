@@ -41,12 +41,9 @@
     "safeContextKeyword": ["that","$this"],
     "requireDotNotation": true,
     "disallowYodaConditions": true,
-    "validateJSDoc":null,
     "validateQuoteMarks": "'",
     "validateIndentation": "\t",
 
-    "requireSpaceAfterLineComment": null
-    //TODO// "requireMultipleVarDecl": true,
-    // problem with third-party names // "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
-    // Should we have this // "requireSpacesInsideArrayBrackets": "allButNested",
+    "requireSpaceAfterLineComment": null,
+    "excludeFiles": ["node_modules/**", "public/**"]
 }
