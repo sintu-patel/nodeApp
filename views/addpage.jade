@@ -1,0 +1,39 @@
+extends layout
+block content
+	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
+		div.header
+			div.logo.float-left
+				img(src='#{pageStyle.logoImg}')
+
+			div.course-command.float-right
+				a.help(href='https://github.com/sintu-patel/nodeApp')
+					img(src='#{pageStyle.helpImg}')
+				a.close(href='https://github.com/sintu-patel/nodeApp')
+					img(src='#{pageStyle.closeImg}')
+
+		div.home-content
+			div.title Input page title
+				input(data-ng-model="pageno" type="text" value="pageno")
+				input(data-ng-model="pagetitle" type="text")
+			div.content
+				div.main-content.float-left
+					div Input Page content
+					textarea(data-ng-model="pagecontent")
+
+				div.right-section.float-right
+					div.transcript
+						div Input Page image url
+						input(data-ng-model="pageimage" type="text")
+
+			div.footer
+				div.controls
+					div.play.float-left
+						div(data-ng-click='addPage()')
+							img(src='#{pageStyle.playImg}')
+					div.prev.float-left
+						div(data-ng-click="showPage('prevPage')")
+							img(src='#{pageStyle.prevImg}')
+					div.next.float-left
+						div(data-ng-click="showPage('nextPage')")
+							img(src='#{pageStyle.nextImg}')
+

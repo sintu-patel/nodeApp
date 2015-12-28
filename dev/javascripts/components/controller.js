@@ -40,4 +40,37 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 	$scope.toggleMenu = function() {
 		$scope.menuState = $scope.menuState === 'hidden' ? 'visible' : 'hidden';
 	};
+
+	$scope.addPage = function() {
+		$scope.editPageNo = $scope.pageno;
+		$scope.editTitle = $scope.pagetitle;
+		$scope.editcontent = $scope.pagecontent;
+		$scope.editimage = $scope.pageimage;
+
+		var pagaDataArr = {
+			'pageNo': $scope.editPageNo,
+			'pageTitle': $scope.editTitle,
+			'content': $scope.editcontent,
+			'img': $scope.editimage
+		};
+
+		$scope.pagaDataArr = pagaDataArr;
+		$scope.postData();
+	};
+
+	$scope.postData = function() {
+		var pageParams = $scope.pagaDataArr;
+		var serviceUrl = '/insertdata';
+		var request = $http({
+			method: 'post',
+			url: serviceUrl,
+			data: $scope.pagaDataArr
+		});
+
+		request.success(function(response) {
+			if (response === 'ok') {
+				alert('Data inserted successfully');
+			}
+		});
+	};
 });
