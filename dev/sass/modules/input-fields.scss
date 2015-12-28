@@ -1,0 +1,37 @@
+textarea {
+	height: 200px;
+	width: 100%;
+}
+
+input,
+textarea {
+	border: 1px solid $color-light-gray;
+	padding: 5px;
+}
+
+.right-section {
+	input {
+		width: 260px;
+	}
+}
+
+.label {
+	color: $color-navy-blue;
+	font-weight: bold;
+	line-height: 40px;
+	text-transform: uppercase;
+}
+
+.page-no {
+	margin-left: 5px;
+	width: 20px;
+}
+
+.page-title {
+	margin-left: 5px;
+	width: 660px;
+}
+
+.page-title-label {
+	margin-left: 50px;
+}

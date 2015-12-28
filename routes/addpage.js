@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
 	var collection = db.get('book');
 	collection.count({}, function(e, totalCount) {
 		collection.find({}, function(e, appData) {
-			res.render('ebook', { 'appData': appData, 'totalPages': totalCount });
+			res.render('addpage', { 'totalPages': totalCount });
 		});
 	});
 });

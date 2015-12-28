@@ -5,8 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 	var pageNo;
 	pageNo = req.param('pageNo');
+	pageNo = parseInt(pageNo, 10);
 	if (pageNo === undefined || pageNo === '0' || pageNo === '7') {
-		pageNo = '1';
+		pageNo = 1;
 	}
 	var db = req.db;
 	var collection = db.get('book');
