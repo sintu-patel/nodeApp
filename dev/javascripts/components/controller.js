@@ -12,7 +12,6 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 			$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
 		});
 	};
-	$scope.ebookData();
 
 	// Make ajax call and show page data
 	$scope.showPage = function($event) {

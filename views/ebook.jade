@@ -1,6 +1,6 @@
 extends layout
 block content
-	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
+	div.container(data-ng-controller="ebookController" data-loadebook data-totalpages = "#{totalPages}")
 		div.header
 			div.logo.float-left
 				img(src='#{pageStyle.logoImg}')

@@ -4,8 +4,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 	var db = req.db;
 	var collection = db.get('book');
-	collection.find({}, function(e, appData) {
-		res.render('addpage', { 'appData': appData });
+	collection.count({}, function(e, totalCount) {
+		collection.find({}, function(e, appData) {
+			res.render('addpage', { 'totalPages': totalCount });
+		});
 	});
 });
 

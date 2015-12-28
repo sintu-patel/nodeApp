@@ -1,6 +1,6 @@
 extends layout
 block content
-	div.container(data-ng-controller="ebookController", data-ng-init="initApp")
+	div.container(data-ng-controller="ebookController" data-loadebook data-totalpages = "#{totalPages}")
 		div.header
 			div.logo.float-left
 				img(src='#{pageStyle.logoImg}')
@@ -12,17 +12,19 @@ block content
 					img(src='#{pageStyle.closeImg}')
 
 		div.home-content
-			div.title Input page title
-				input(data-ng-model="pageno" type="text" value="pageno")
+			div.title
+				span Page No:
+				input(data-ng-model="pageno" type="text" readonly)
+				span Page Title:
 				input(data-ng-model="pagetitle" type="text")
 			div.content
 				div.main-content.float-left
-					div Input Page content
+					div Page content
 					textarea(data-ng-model="pagecontent")
 
 				div.right-section.float-right
 					div.transcript
-						div Input Page image url
+						div Page image url
 						input(data-ng-model="pageimage" type="text")
 
 			div.footer
