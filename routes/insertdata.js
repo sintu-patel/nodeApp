@@ -14,8 +14,12 @@ router.all('/', function(req, res, next) {
 		'img': img,
 		'content': content,
 		'pageNo': pageNo
+	}, function() {
+		collection.count({}, function(e, totalCount) {
+			res.send({ 'STATUS':'ok', 'totalCount': totalCount });
+		});
 	});
-	res.send('ok');
+
 });
 
 module.exports = router;

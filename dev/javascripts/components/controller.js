@@ -67,8 +67,12 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		});
 
 		request.success(function(response) {
-			if (response === 'ok') {
-				alert('Data inserted successfully');
+			if (response.STATUS === 'ok') {
+				alert('Records updated successfully');
+				$scope.pageno = parseInt(response.totalCount, 10) + 1;
+				$scope.pagetitle = '';
+				$scope.pagecontent = '';
+				$scope.pageimage = '';
 			}
 		});
 	};

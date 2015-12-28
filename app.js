@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 	 next();
 });
 
-app.use('/', routes);
+app.use('/', ebook);
 app.use('/ebook', ebook);
 app.use('/getpage', getpage);
 app.use('/addpage', addpage);
