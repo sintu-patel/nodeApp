@@ -19,7 +19,7 @@ block content
 		div.home-content
 			div.title
 				span.label Page No:
-				input.page-no(data-ng-model="pageno" type="text" readonly)
+				input.page-no(data-ng-model="pageno" type="text" data-ng-blur="updateForm()")
 				span.label.page-title-label Page Title:
 				input.page-title(data-ng-model="pagetitle" type="text")
 			div.content
@@ -35,6 +35,6 @@ block content
 			div.footer
 				div.controls
 					div.play.float-left
-						div(data-ng-click='addPage("insert")')
+						div(data-ng-click='addPage("update")')
 							img(src='#{pageStyle.playImg}' title="Submit")
 
