@@ -40,13 +40,14 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		$scope.menuState = $scope.menuState === 'hidden' ? 'visible' : 'hidden';
 	};
 
-	$scope.addPage = function() {
+	$scope.addPage = function(queryType) {
 		$scope.editPageNo = $scope.pageno;
 		$scope.editTitle = $scope.pagetitle;
 		$scope.editcontent = $scope.pagecontent;
 		$scope.editimage = $scope.pageimage;
 
 		var pagaDataArr = {
+			'queryType': queryType,
 			'pageNo': $scope.editPageNo,
 			'pageTitle': $scope.editTitle,
 			'content': $scope.editcontent,
@@ -55,6 +56,7 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 
 		$scope.pagaDataArr = pagaDataArr;
 		$scope.postData();
+
 	};
 
 	$scope.postData = function() {
@@ -74,6 +76,24 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 				$scope.pagecontent = '';
 				$scope.pageimage = '';
 			}
+		});
+	};
+
+	$scope.updateForm = function() {
+		var serviceUrl = '/getpage?pageNo=' + $scope.pageno;
+		$http.get(serviceUrl)
+		.success(function(response) {
+			if (!response.length) {
+				alert('The page ' + $scope.pageno + ' does not exits in database');
+				$scope.pagetitle = '';
+				$scope.pagecontent = '';
+				$scope.pageimage = '';
+				return;
+			}
+
+			$scope.pagetitle = response[0].pageTitle;
+			$scope.pagecontent = response[0].content;
+			$scope.pageimage = response[0].img;
 		});
 	};
 });

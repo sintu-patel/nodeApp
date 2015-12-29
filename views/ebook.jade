@@ -7,10 +7,14 @@ block content
 					img(src='#{pageStyle.logoImg}')
 
 			div.course-command.float-right
-				a.help(href='https://github.com/sintu-patel/nodeApp' title="get the repository")
-					img(src='#{pageStyle.helpImg}')
+				a.close(href='/' title="Home page")
+					img(src='#{pageStyle.homeImg}')
 				a.close(href='/addpage' title="add page")
 					img(src='#{pageStyle.editImg}')
+				a.close(href='/updatepage' title="update page")
+					img(src='#{pageStyle.updateImg}')
+				a.help(href='https://github.com/sintu-patel/nodeApp' title="get the repository")
+					img(src='#{pageStyle.helpImg}')
 
 		div.home-content
 			div.title {{pageTitle}}

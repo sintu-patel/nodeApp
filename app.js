@@ -10,6 +10,7 @@ var ebook = require('./routes/ebook');
 var getpage = require('./routes/getpage');
 var addpage = require('./routes/addpage');
 var insertdata = require('./routes/insertdata');
+var updatepage = require('./routes/updatepage');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/ebook', ebook);
 app.use('/getpage', getpage);
 app.use('/addpage', addpage);
 app.use('/insertdata', insertdata);
+app.use('/updatepage', updatepage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
