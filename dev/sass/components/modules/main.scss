@@ -16,6 +16,13 @@
 		padding: 0 20px;
 		text-transform: uppercase;
 		vertical-align: middle;
+
+		input {
+			height: 30px;
+			line-height: 1;
+			vertical-align: middle;
+			padding: 0 5px;
+		}
 	}
 
 	.content {
@@ -59,5 +66,9 @@
 		margin: 10px auto;
 		max-height: 80%;
 		max-width: 80%;
+
+		&.preview-img {
+			max-height: 100px;
+		}
 	}
 }

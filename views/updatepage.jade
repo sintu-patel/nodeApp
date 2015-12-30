@@ -26,11 +26,17 @@ block content
 				div.main-content.float-left
 					div.label Page content
 					textarea(data-ng-model="pagecontent")
+					div.preview
+						h1 Preview
+						div(data-ng-bind-html="pagecontent | dataAsHtml")
 
 				div.right-section.float-right
 					div.transcript
 						div.label Page image url
 						input(data-ng-model="pageimage" type="text")
+						div.preview
+						h1 Preview
+						img.preview-img(src='{{pageimage}}')
 
 			div.footer
 				div.controls
