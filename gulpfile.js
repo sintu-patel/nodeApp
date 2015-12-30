@@ -50,10 +50,23 @@ gulp.task('copyImageFolder', function() {
 		.pipe(gulp.dest('public/images'));
 });
 
+// Copy bootstrap from bower componets folder
+gulp.task('copyBootstrap', function() {
+	gulp.src('bower_components/bootstrap-sass/assets/stylesheets/**/*')
+		.pipe(gulp.dest('dev/sass/vendor'));
+});
+
+// Copy angularjs from bower componets folder
+gulp.task('copyAngular', function() {
+	gulp.src('bower_components/angular/angular.js')
+		.pipe(gulp.dest('dev/javascripts/vendor/'));
+});
+
+
 // Scslint task
 var scsslint = require('gulp-scss-lint');
 gulp.task('scssLint', function() {
-	return gulp.src('dev/**/*.scss')
+	return gulp.src('dev/components/**/*.scss')
 		.pipe(scsslint({
 			'config': 'scss-lint.yml'
 		}));

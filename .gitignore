@@ -3,3 +3,5 @@ node_modules
 js
 css
 public
+bower_components
+vendor

@@ -1,17 +1,17 @@
 extends layout
 block content
-	div.container(data-ng-controller="ebookController" data-loadebook data-totalpages = "#{totalPages}")
+	div.custom-container(data-ng-controller="ebookController" data-loadebook data-totalpages = "#{totalPages}")
 		div.header
 			div.logo.float-left
 				a(href="/" title="View Ebook")
 					img(src='#{pageStyle.logoImg}')
 
 			div.course-command.float-right
-				a.close(href='/' title="Home page")
+				a.help(href='/' title="Home page")
 					img(src='#{pageStyle.homeImg}')
-				a.close(href='/addpage' title="add page")
+				a.help(href='/addpage' title="add page")
 					img(src='#{pageStyle.editImg}')
-				a.close(href='/updatepage' title="update page")
+				a.help(href='/updatepage' title="update page")
 					img(src='#{pageStyle.updateImg}')
 				a.help(href='https://github.com/sintu-patel/nodeApp' title="get the repository")
 					img(src='#{pageStyle.helpImg}')
