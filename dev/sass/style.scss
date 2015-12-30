@@ -1,14 +1,15 @@
 @charset 'utf-8';
+@import 'vendor/bootstrap';
 @import 'compass/css3';
-@import 'base/config';
-@import 'base/colors';
-@import 'base/fonts';
-@import 'base/reset';
-@import 'mixins/mixins';
-@import 'modules/header';
-@import 'modules/main';
-@import 'modules/nav';
-@import 'modules/footer';
-@import 'modules/input-fields';
-@import 'modules/workaround';
+@import 'components/base/config';
+@import 'components/base/colors';
+@import 'components/base/fonts';
+@import 'components/base/reset';
+@import 'components/mixins/mixins';
+@import 'components/modules/header';
+@import 'components/modules/main';
+@import 'components/modules/nav';
+@import 'components/modules/footer';
+@import 'components/modules/input-fields';
+@import 'components/modules/workaround';
 
