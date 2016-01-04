@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+  - var pageStyle = {"title":"ebook", "logoImg": "images/logo.png","helpImg": "images/help.png","closeImg": "images/close.png","editImg": "images/edit.png","updateImg": "images/update.png","homeImg": "images/home.png","playImg": "images/play.png","prevImg": "images/prev.png","nextImg": "images/next.png"}
+
+    title= pageStyle.title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='/javascripts/vendor/angular.min.js')
+    script(type='text/javascript', src='/javascripts/app.js')
+  body(data-ng-app='ebookApp')
+    block content

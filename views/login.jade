@@ -1,0 +1,62 @@
+extends layoutgrid
+block content
+	div.container.body-container(data-ng-controller="userController")
+		header
+			div.row
+				div.col-xs-12
+					div
+						div.logo.float-left
+							a(href="/" title="View Ebook")
+								img(src='#{pageStyle.logoImg}')
+		main.main
+			div.row
+				div.col-xs-6.login-box
+					h1 Login
+					div.form-group
+						label(for="login-username") Name:
+						input.form-control#login-username(type="text" data-ng-model="loginuser")
+					div.form-group
+						label(for="login-password") Password:
+						input.form-control#login-password(type="password"  data-ng-model="loginpassword")
+					div.form-group
+						button.btn.btn-primary(type="button" data-ng-click="login($event)") Submit
+						button.btn.btn-danger(type="button") Reset
+				div.col-xs-6.register-box
+					h1 Register
+					div.form-group
+						label(for="name") Name:
+						input.form-control#name(type="text" data-ng-model="name")
+
+					div.form-group
+						label(for="username") Choose Username:
+						input.form-control#username(type="text" data-ng-model="username")
+
+					div.form-group
+						label(for="password") Choose Password:
+						input.form-control#password(type="password" data-ng-model="password")
+
+					div.form-group
+						label(for="confirm-password") Reenter Password:
+						input.form-control#confirm-password(type="password" data-ng-model="confirmpassword")
+
+					div.form-group
+						label(for="email") Email:
+						input.form-control#email(type="email" data-ng-model="email")
+
+					div.form-group
+						label(for="phone-number") Phone Number:
+						input.form-control#phone-number(type="number" data-ng-model="phonenumber")
+
+					div.form-group
+						label(for="city-name") City Name:
+						input.form-control#city-name(type="text" data-ng-model="cityname")
+
+					div.form-group
+						button.btn.btn-primary(type="button" data-ng-click="registeruser($event)") Submit
+						button.btn.btn-danger(type="button") Reset
+
+		footer
+			div.row
+				div.col-xs-12
+					div footer
+

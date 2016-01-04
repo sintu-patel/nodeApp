@@ -1,55 +1,50 @@
-.clear-fix {
-	clear: both;
-}
+.custom-container {
 
-.float-left {
-	float: left;
-}
+	.clear-fix {
+		clear: both;
+	}
 
-.float-right {
-	float: right;
-}
+	.float-left {
+		float: left;
+	}
 
-.opacity {
-	opacity: 0;
-}
+	.float-right {
+		float: right;
+	}
 
-body {
-	background: $color-light-blue;
-	font-family: $font-family-default;
-	font-size: $font-size-12;
-	line-height: $line-height-1-2;
-}
+	.opacity {
+		opacity: 0;
+	}
 
-p {
-	font-family: $font-family-default;
-	font-size: $font-size-12;
-	line-height: $line-height-1-2;
-}
+	p {
+		font-family: $font-family-default;
+		font-size: $font-size-12;
+		line-height: $line-height-1-2;
+	}
 
-h1,
-.h1 {
-	color: $color-dark-gray;
-	font-family: $font-family-fancy;
-	font-size: $font-size-18;
-	font-style: italic;
-	font-weight: bold;
-	line-height: $line-height-1-4;
-}
+	h1,
+	.h1 {
+		color: $color-dark-gray;
+		font-family: $font-family-fancy;
+		font-size: $font-size-18;
+		font-style: italic;
+		font-weight: bold;
+		line-height: $line-height-1-4;
+	}
 
-h2,
-.h2 {
-	font-size: $font-size-16;
-	font-weight: bold;
-}
+	h2,
+	.h2 {
+		font-size: $font-size-16;
+		font-weight: bold;
+	}
 
-h3,
-.h3 {
-	font-size: $font-size-14;
-	font-weight: bold;
-}
+	h3,
+	.h3 {
+		font-size: $font-size-14;
+		font-weight: bold;
+	}
 
-div {
-	font-family: $font-family-default;
+	div {
+		font-family: $font-family-default;
+	}
 }
-
