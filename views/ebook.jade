@@ -5,6 +5,7 @@ block content
 			div.logo.float-left
 				a(href="/" title="View Ebook")
 					img(src='#{pageStyle.logoImg}')
+				span.session-user #{sessionuser}
 
 			div.course-command.float-right
 				a.help(href='/' title="Home page")
@@ -17,7 +18,7 @@ block content
 					img(src='#{pageStyle.helpImg}')
 
 		div.home-content
-			div.title {{pageTitle}} #{sessionuser}
+			div.title {{pageTitle}}
 			div.content
 				div.main-content.float-left
 					div(data-ng-bind-html="pageContent | dataAsHtml")

@@ -3,7 +3,7 @@ var router = express.Router();
 /* Get Data. */
 router.get('/', function(req, res, next) {
 	if (req.session.username) {
-		res.render('updatepage');
+		res.render('updatepage', { 'sessionuser': req.session.username } );
 	}
 
 	else {
