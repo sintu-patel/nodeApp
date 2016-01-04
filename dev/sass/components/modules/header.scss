@@ -22,7 +22,7 @@
 	.course-command {
 		height: 64px;
 		margin: 13px 0 0;
-		width: 195px;
+		width: 240px;
 
 		.close,
 		.help {
@@ -32,7 +32,8 @@
 	}
 }
 
-.header {
+.header-container {
 	background: $color-dark-gray;
-	height: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
