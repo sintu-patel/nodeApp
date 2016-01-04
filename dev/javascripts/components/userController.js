@@ -58,4 +58,38 @@ ebookApp.controller('userController', function($scope, $http, $sce) {
 		});
 	};
 
+	$scope.invalidPassword = false;
+	$scope.validatePassword = function () {
+		if ($scope.password !== $scope.confirmpassword) {
+			$scope.invalidPassword = true;
+			$scope.password = '';
+			$scope.confirmpassword = '';
+		}
+
+		else {
+			$scope.invalidPassword = false;
+		}
+	};
+
+	$scope.invalidUserName = false;
+	$scope.validateUserName = function () {
+		var username = { 'username': $scope.username };
+		var serviceUrl = '/validateusername';
+		var request = $http({
+			method: 'post',
+			url: serviceUrl,
+			data: username
+		});
+
+		request.success(function(response) {
+			if (response.STATUS === 'valid') {
+				$scope.invalidUserName = true;
+			}
+
+			if (response.STATUS === 'invalid') {
+				$scope.invalidUserName = false;
+			}
+		});
+	};
+
 });

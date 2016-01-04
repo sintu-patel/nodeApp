@@ -25,31 +25,33 @@ block content
 					h1 Register
 					div.form-group
 						label(for="name") Name:
-						input.form-control#name(type="text" data-ng-model="name")
+						input.form-control#name(type="text" data-ng-model="name" required)
 
 					div.form-group
 						label(for="username") Choose Username:
-						input.form-control#username(type="text" data-ng-model="username")
+						input.form-control#username(type="text" data-ng-model="username" required data-ng-blur="validateUserName($event)")
+						div.validation-error(data-ng-show="invalidUserName") Username already exits !. Please choose other username
 
 					div.form-group
 						label(for="password") Choose Password:
-						input.form-control#password(type="password" data-ng-model="password")
+						input.form-control#password(type="password" data-ng-model="password" required)
 
 					div.form-group
 						label(for="confirm-password") Reenter Password:
-						input.form-control#confirm-password(type="password" data-ng-model="confirmpassword")
+						input.form-control#confirm-password(type="password" data-ng-blur="validatePassword($event)" data-ng-model="confirmpassword" required)
+						div.validation-error(data-ng-show="invalidPassword") confirm password do not match
 
 					div.form-group
 						label(for="email") Email:
-						input.form-control#email(type="email" data-ng-model="email")
+						input.form-control#email(type="email" data-ng-model="email" required)
 
 					div.form-group
 						label(for="phone-number") Phone Number:
-						input.form-control#phone-number(type="number" data-ng-model="phonenumber")
+						input.form-control#phone-number(type="number" data-ng-model="phonenumber" required)
 
 					div.form-group
 						label(for="city-name") City Name:
-						input.form-control#city-name(type="text" data-ng-model="cityname")
+						input.form-control#city-name(type="text" data-ng-model="cityname" required)
 
 					div.form-group
 						button.btn.btn-primary(type="button" data-ng-click="registeruser($event)") Submit
