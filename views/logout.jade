@@ -1,0 +1,21 @@
+extends layoutgrid
+block content
+	div.container-fluid.body-container(data-ng-controller="userController")
+		header.header
+			div.row.header-container
+				div.col-xs-12
+					div
+						div.logo.float-left
+							a(href="/" title="View Ebook")
+								img(src='#{pageStyle.logoImg}')
+		main.main
+			div.row
+				div.col-xs-12.logged-out
+					h1.h1 Logged Out
+					a(href="/login") Click here to login again
+
+		footer.footer
+			div.row
+				div.col-xs-12.footer-container
+					div This is footer
+

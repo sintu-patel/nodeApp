@@ -18,6 +18,8 @@
 		"require":true,
 		"__dirname":true,
 		"module":true,
-		"JSON":true
+		"JSON":true,
+		"alert":true,
+		"window":true
 	}
 }

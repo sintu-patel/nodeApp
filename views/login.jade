@@ -2,7 +2,7 @@ extends layoutgrid
 block content
 	div.container-fluid.body-container(data-ng-controller="userController")
 		header.header
-			div.row
+			div.row.header-container
 				div.col-xs-12
 					div
 						div.logo.float-left
@@ -20,7 +20,7 @@ block content
 						input.form-control#login-password(type="password"  data-ng-model="loginpassword")
 					div.form-group
 						button.btn.btn-primary(type="button" data-ng-click="login($event)") Submit
-						button.btn.btn-danger(type="button") Reset
+						button.btn.btn-danger.margin-left-10(type="button") Reset
 				div.col-xs-6.register-box
 					h1 Register
 					div.form-group
@@ -55,10 +55,10 @@ block content
 
 					div.form-group
 						button.btn.btn-primary(type="button" data-ng-click="registeruser($event)") Submit
-						button.btn.btn-danger(type="button") Reset
+						button.btn.btn-danger.margin-left-10(type="button") Reset
 
 		footer.footer
 			div.row
-				div.col-xs-12
-					div footer
+				div.col-xs-12.footer-container
+					div This is footer
 
