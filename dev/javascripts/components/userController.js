@@ -49,6 +49,7 @@ ebookApp.controller('userController', function($scope, $http, $sce) {
 		request.success(function(response) {
 			if (response.STATUS === 'ok') {
 				alert('Logged In');
+				window.location.href = response.redirectURL;
 			}
 
 			if (response.STATUS === 'invalid') {

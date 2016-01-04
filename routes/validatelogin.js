@@ -10,7 +10,8 @@ router.all('/', function(req, res, next) {
 	// Insert Data
 	collection.find({ 'username': username }, function(e, data) {
 		if (data[0].password === password) {
-			res.send({ 'STATUS':'ok' });
+			req.session.username = username;
+			res.send({ 'STATUS':'ok', 'redirectURL': '/ebook' });
 		}
 
 		else {

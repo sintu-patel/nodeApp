@@ -17,7 +17,7 @@ block content
 					img(src='#{pageStyle.helpImg}')
 
 		div.home-content
-			div.title {{pageTitle}}
+			div.title {{pageTitle}} #{sessionuser}
 			div.content
 				div.main-content.float-left
 					div(data-ng-bind-html="pageContent | dataAsHtml")
