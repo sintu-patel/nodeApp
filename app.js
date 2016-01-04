@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -11,6 +12,9 @@ var getpage = require('./routes/getpage');
 var addpage = require('./routes/addpage');
 var insertdata = require('./routes/insertdata');
 var updatepage = require('./routes/updatepage');
+var login = require('./routes/login');
+var registeruser = require('./routes/registeruser');
+var validatelogin = require('./routes/validatelogin');
 
 var app = express();
 
@@ -26,6 +30,7 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(session({secret: 'ssshhhhh'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -43,6 +48,9 @@ app.use('/getpage', getpage);
 app.use('/addpage', addpage);
 app.use('/insertdata', insertdata);
 app.use('/updatepage', updatepage);
+app.use('/login', login);
+app.use('/registeruser', registeruser);
+app.use('/validatelogin', validatelogin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
