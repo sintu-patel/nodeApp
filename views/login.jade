@@ -1,7 +1,7 @@
 extends layoutgrid
 block content
-	div.container.body-container(data-ng-controller="userController")
-		header
+	div.container-fluid.body-container(data-ng-controller="userController")
+		header.header
 			div.row
 				div.col-xs-12
 					div
@@ -55,7 +55,7 @@ block content
 						button.btn.btn-primary(type="button" data-ng-click="registeruser($event)") Submit
 						button.btn.btn-danger(type="button") Reset
 
-		footer
+		footer.footer
 			div.row
 				div.col-xs-12
 					div footer
