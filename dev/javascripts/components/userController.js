@@ -1,16 +1,24 @@
 ebookApp.controller('userController', function($scope, $http, $sce) {
 
 	$scope.registeruser = function() {
-		$scope.userData = {
-			'name': $scope.name,
-			'username': $scope.username,
-			'password': $scope.password,
-			'email': $scope.email,
-			'phonenumber': $scope.phonenumber,
-			'cityname': $scope.cityname
-		};
 
-		$scope.postData();
+		if ($scope.name && $scope.username && $scope.password && $scope.email && $scope.phonenumber && $scope.cityname) {
+			$scope.userData = {
+				'name': $scope.name,
+				'username': $scope.username,
+				'password': $scope.password,
+				'email': $scope.email,
+				'phonenumber': $scope.phonenumber,
+				'cityname': $scope.cityname
+			};
+
+			$scope.postData();
+			$scope.username = '';
+		}
+
+		else {
+			alert('Fill all the fields');
+		}
 	};
 
 	$scope.postData = function() {
@@ -48,7 +56,6 @@ ebookApp.controller('userController', function($scope, $http, $sce) {
 
 		request.success(function(response) {
 			if (response.STATUS === 'ok') {
-				alert('Logged In');
 				window.location.href = response.redirectURL;
 			}
 
