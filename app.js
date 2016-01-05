@@ -23,15 +23,7 @@ var app = express();
 // New Code for mongoDB
 var mongo = require('mongodb');
 var monk = require('monk');
-
-//provide a sensible default for local development
-var mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + 'ebook';
-//take advantage of openshift env vars when available:
-if (process.env.OPENSHIFT_MONGODB_DB_URL) {
-	mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + 'ebook';
-}
-
-var db = monk(mongodb_connection_string);
+var db = monk('localhost:27017/ebook');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
