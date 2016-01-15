@@ -6,10 +6,16 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		var serviceUrl = '/getpage?pageNo=' + $scope.currentPage;
 		$http.get(serviceUrl)
 		.success(function(response) {
-			$scope.pageTitle = response[0].pageTitle;
-			$scope.pageContent = response[0].content;
-			$scope.pageImage = response[0].img;
-			$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
+			if (response[0]) {
+				$scope.pageTitle = response[0].pageTitle;
+				$scope.pageContent = response[0].content;
+				$scope.pageImage = response[0].img;
+				$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
+			}
+
+			else {
+				$scope.pageContent = 'Your ebook is empty. Please add some page to it. <a href="/addpage"> Click here to add page</a>';
+			}
 		});
 	};
 
