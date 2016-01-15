@@ -102,4 +102,17 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 			$scope.pageimage = response[0].img;
 		});
 	};
+
+	// For Socket IO
+	var socket = io.connect();
+	socket.on('this', function (data) {
+		var activeUsersHtml = '<ul>';
+		$.each(data, function(k, v) {
+			activeUsersHtml += '<li>';
+			activeUsersHtml += v.name;
+			activeUsersHtml += '</li>';
+		});
+		activeUsersHtml += '</ul>';
+		$('.active-users').empty().html(activeUsersHtml);
+	});
 });

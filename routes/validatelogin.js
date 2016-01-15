@@ -7,12 +7,13 @@ router.all('/', function(req, res, next) {
 	var password = req.param('password');
 	var db = req.db;
 	var collection = db.get('userdata');
-	// Insert Data
+
 	collection.find({ 'username': username }, function(e, data) {
 		if (data.length) {
 			if (data[0].password === password) {
 				req.session.username = username;
 				res.send({ 'STATUS':'ok', 'redirectURL': '/ebook' });
+				collection.update({ 'username': username }, { $set: { 'active': 'yes' }});
 			}
 
 			else {
