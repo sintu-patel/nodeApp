@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
 			pageNo = 1;
 		}
 		var db = req.db;
-		var collection = db.get('book');
+		var userDataTable = req.session.username + '_table';
+		var collection = db.get(userDataTable);
 		collection.find({
 			'pageNo': pageNo
 		}, function(e, appData) {

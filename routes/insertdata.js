@@ -10,7 +10,8 @@ router.all('/', function(req, res, next) {
 		var content = req.param('content');
 		var pageNo = req.param('pageNo');
 		var db = req.db;
-		var collection = db.get('book');
+		var userDataTable = req.session.username + '_table';
+		var collection = db.get(userDataTable);
 		pageNo = parseInt(pageNo, 10);
 
 		// Insert Data
