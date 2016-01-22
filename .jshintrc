@@ -20,6 +20,8 @@
 		"module":true,
 		"JSON":true,
 		"alert":true,
-		"window":true
+		"window":true,
+		"$":true,
+		"io":true
 	}
 }
