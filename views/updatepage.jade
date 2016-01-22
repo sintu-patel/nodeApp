@@ -36,10 +36,10 @@ block content
 				div.right-section.float-right
 					div.transcript
 						div.label Page image url
-						input(data-ng-model="pageimage" type="text")
+						textarea(data-ng-model="keyPoints")
 						div.preview
 						h1 Preview
-						img.preview-img(src='{{pageimage}}')
+						div(data-ng-bind-html="keyPoints | dataAsHtml")
 
 			div.footer
 				div.controls

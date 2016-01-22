@@ -50,6 +50,12 @@ gulp.task('copyImageFolder', function() {
 		.pipe(gulp.dest('public/images'));
 });
 
+// Copy images from dev folder to public folder
+gulp.task('copyVendorJS', function() {
+	gulp.src('dev/javascripts/vendor/*.js')
+		.pipe(gulp.dest('public/javascripts/vendor'));
+});
+
 // Copy bootstrap from bower componets folder
 gulp.task('copyBootstrap', function() {
 	gulp.src('bower_components/bootstrap-sass/assets/stylesheets/**/*')
@@ -93,5 +99,5 @@ gulp.task('jscs', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'compileSASS', 'concatJS', 'concatVendorJS', 'copyImageFolder']);
+	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
 });

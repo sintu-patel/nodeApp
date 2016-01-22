@@ -27,7 +27,7 @@ block content
 
 				div.right-section.float-right
 					div.transcript
-						img(src='{{pageImage}}')
+						div(data-ng-bind-html="keyPoints | dataAsHtml")
 
 			div.footer
 				div.controls
