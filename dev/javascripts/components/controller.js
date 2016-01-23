@@ -6,10 +6,16 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		var serviceUrl = '/getpage?pageNo=' + $scope.currentPage;
 		$http.get(serviceUrl)
 		.success(function(response) {
-			$scope.pageTitle = response[0].pageTitle;
-			$scope.pageContent = response[0].content;
-			$scope.pageImage = response[0].img;
-			$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
+			if (response[0]) {
+				$scope.pageTitle = response[0].pageTitle;
+				$scope.pageContent = response[0].content;
+				$scope.keyPoints = response[0].keyPoints;
+				$scope.progress = (($scope.currentPage / $scope.totalPage) * 100) + '%';
+			}
+
+			else {
+				$scope.pageContent = 'Your ebook is empty. Please add some page to it. <a href="/addpage"> Click here to add page</a>';
+			}
 		});
 	};
 
@@ -44,14 +50,14 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		$scope.editPageNo = $scope.pageno;
 		$scope.editTitle = $scope.pagetitle;
 		$scope.editcontent = $scope.pagecontent;
-		$scope.editimage = $scope.pageimage;
+		$scope.keyPoints = $scope.keyPoints;
 
 		var pagaDataArr = {
 			'queryType': queryType,
 			'pageNo': $scope.editPageNo,
 			'pageTitle': $scope.editTitle,
 			'content': $scope.editcontent,
-			'img': $scope.editimage
+			'keyPoints': $scope.keyPoints
 		};
 
 		$scope.pagaDataArr = pagaDataArr;
@@ -74,7 +80,7 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 				$scope.pageno = parseInt(response.totalCount, 10) + 1;
 				$scope.pagetitle = '';
 				$scope.pagecontent = '';
-				$scope.pageimage = '';
+				$scope.keyPoints = '';
 			}
 		});
 	};
@@ -87,13 +93,26 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 				alert('The page ' + $scope.pageno + ' does not exits in database');
 				$scope.pagetitle = '';
 				$scope.pagecontent = '';
-				$scope.pageimage = '';
+				$scope.keyPoints = '';
 				return;
 			}
 
 			$scope.pagetitle = response[0].pageTitle;
 			$scope.pagecontent = response[0].content;
-			$scope.pageimage = response[0].img;
+			$scope.keyPoints = response[0].keyPoints;
 		});
 	};
+
+	// For Socket IO
+	var socket = io.connect();
+	socket.on('this', function (data) {
+		var activeUsersHtml = '<ul>';
+		$.each(data, function(k, v) {
+			activeUsersHtml += '<li>';
+			activeUsersHtml += v.name;
+			activeUsersHtml += '</li>';
+		});
+		activeUsersHtml += '</ul>';
+		$('.active-users').empty().html(activeUsersHtml);
+	});
 });

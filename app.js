@@ -24,6 +24,7 @@ var app = express();
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/ebook');
+app.set('db', db)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

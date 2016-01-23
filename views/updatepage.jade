@@ -22,7 +22,7 @@ block content
 		div.home-content
 			div.title
 				span.label Page No:
-				input.page-no(data-ng-model="pageno" type="text" data-ng-blur="updateForm()")
+				input.page-no.blink-border(data-ng-model="pageno" type="text" data-ng-blur="updateForm()")
 				span.label.page-title-label Page Title:
 				input.page-title(data-ng-model="pagetitle" type="text")
 			div.content
@@ -36,10 +36,10 @@ block content
 				div.right-section.float-right
 					div.transcript
 						div.label Page image url
-						input(data-ng-model="pageimage" type="text")
+						textarea(data-ng-model="keyPoints")
 						div.preview
 						h1 Preview
-						img.preview-img(src='{{pageimage}}')
+						div(data-ng-bind-html="keyPoints | dataAsHtml")
 
 			div.footer
 				div.controls
