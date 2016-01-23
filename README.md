@@ -15,6 +15,6 @@ How to use this app.
 2. Open command prompt in nodeApp directory
 3. Run npm install
 4. Run node ./bin/www
-5. Visit http://localhost:3000/ in browser
+5. Visit http://localhost:3001/ in browser
 6. Register username
 7. Login with username and password
