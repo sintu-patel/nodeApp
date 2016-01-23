@@ -18,3 +18,8 @@ How to use this app.
 5. Visit http://localhost:3001/ in browser
 6. Register username
 7. Login with username and password
+
+How to run css unit test
+Visit `http://localhost:9876`
+With this configuration, you would visit `http://localhost:9876/karma` instead.
+Visiting `http://localhost:9876` will show you the proxied server under test.
