@@ -20,6 +20,16 @@ How to use this app.
 7. Login with username and password
 
 How to run css unit test
-Visit `http://localhost:9876`
-With this configuration, you would visit `http://localhost:9876/karma` instead.
-Visiting `http://localhost:9876` will show you the proxied server under test.
+To run the tests:
+
+1. Start the Karma server: `./jake.sh karma` (Unix/Mac) or `jake karma` (Windows)
+2. Open `http://localhost:9876` in one or more browsers.
+3. Run `./jake.sh loose=true` (Unix/Mac) or `jake loose=true` (Windows) every time you want to build and test. Alternatively, use `./watch.sh loose=true` (Unix/Mac) or `watch loose=true` (Windows) to automatically run `jake` whenever files change.
+
+Remove the `loose=true` parameter for strict Node and browser version checking.
+
+To run the app:
+
+1. Run `./jake.sh run` (Unix/Mac) or `jake run` (Windows).
+2. Open `http://localhost:8080` in a browser.
+3. Click the coffee cup icon to see the text appear and disappear.
