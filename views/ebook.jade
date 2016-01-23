@@ -27,7 +27,7 @@ block content
 
 				div.right-section.float-right
 					div.transcript
-						img(src='{{pageImage}}')
+						div(data-ng-bind-html="keyPoints | dataAsHtml")
 
 			div.footer
 				div.controls
@@ -51,4 +51,7 @@ block content
 								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"active": currentPage == #{lesson.pageNo}}')
 									span #{lesson.pageTitle}
 					div.open-menu.float-left(data-ng-click='toggleMenu()' data-ng-class='{"active": menuState == "visible"}')
+
+			div.active-users
+
 

@@ -6,7 +6,7 @@ router.all('/', function(req, res, next) {
 	if (req.session.username) {
 		var queryType = req.param('queryType');
 		var pageTitle = req.param('pageTitle');
-		var img = req.param('img');
+		var keyPoints = req.param('keyPoints');
 		var content = req.param('content');
 		var pageNo = req.param('pageNo');
 		var db = req.db;
@@ -18,7 +18,7 @@ router.all('/', function(req, res, next) {
 		if (queryType === 'insert') {
 			collection.insert({
 				'pageTitle': pageTitle,
-				'img': img,
+				'keyPoints': keyPoints,
 				'content': content,
 				'pageNo': pageNo
 			}, function() {
@@ -30,7 +30,7 @@ router.all('/', function(req, res, next) {
 
 		else if (queryType === 'update') {
 			collection.update({ 'pageNo': pageNo }, { $set: {
-				'img': img,
+				'keyPoints': keyPoints,
 				'content': content,
 				'pageTitle': pageTitle
 			}}, function() {

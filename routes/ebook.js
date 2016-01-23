@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 		var userDataTable = req.session.username + '_table';
 		var collection = db.get(userDataTable);
 		collection.count({}, function(e, totalCount) {
-			collection.find({}, function(e, appData) {
+			collection.find({}, { 'sort': ['pageNo', 'asc'] }, function(e, appData) {
 				res.render('ebook', { 'appData': appData, 'totalPages': totalCount, 'sessionuser': req.session.username });
 			});
 		});
