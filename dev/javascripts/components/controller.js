@@ -86,7 +86,7 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 		request.success(function(response) {
 			if (response.STATUS === 'ok') {
 				alert('Records updated successfully');
-				$scope.oldpageno = '';
+				$scope.oldpagetitle = '';
 				$scope.newpageno = '';
 			}
 		});
