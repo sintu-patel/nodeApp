@@ -32,7 +32,6 @@
 
     "disallowKeywords": ["with"],
     "disallowMultipleLineStrings": true,
-    "validateLineBreaks": "LF",
 
     "disallowMixedSpacesAndTabs": "smart",
     "disallowTrailingWhitespace": true,

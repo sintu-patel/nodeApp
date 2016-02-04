@@ -98,6 +98,14 @@ gulp.task('jscs', function() {
 		.pipe(jscs.reporter());
 });
 
-gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
+// Add bower with gulp
+var bower = require('gulp-bower');
+gulp.task('bower', function() {
+	return bower({ cmd: 'install' });
 });
+
+gulp.task('watch', function() {
+	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'copyBootstrap', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
+});
+
+gulp.task('default', ['bower', 'scssLint', 'jscs', 'jsHint', 'copyBootstrap', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
