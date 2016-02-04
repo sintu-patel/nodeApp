@@ -105,7 +105,22 @@ gulp.task('bower', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['dev/**/*'], ['scssLint', 'jscs', 'jsHint', 'copyBootstrap', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
+	gulp.watch(['dev/**/*'], ['scssLint',
+		'jscs',
+		'jsHint',
+		'copyBootstrap',
+		'compileSASS',
+		'concatJS',
+		'copyVendorJS',
+		'copyImageFolder']);
 });
 
-gulp.task('default', ['bower', 'scssLint', 'jscs', 'jsHint', 'copyBootstrap', 'compileSASS', 'concatJS', 'copyVendorJS', 'copyImageFolder']);
+gulp.task('default', ['bower',
+	'scssLint',
+	'jscs',
+	'jsHint',
+	'copyBootstrap',
+	'compileSASS',
+	'concatJS',
+	'copyVendorJS',
+	'copyImageFolder']);
