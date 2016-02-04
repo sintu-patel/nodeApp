@@ -65,6 +65,33 @@ ebookApp.controller('ebookController', function($scope, $http, $sce) {
 
 	};
 
+	$scope.updatePageNo = function() {
+		var pagaDataArr = {
+			'oldpagetitle': $scope.oldpagetitle,
+			'newpageno': $scope.newpageno
+		};
+
+		$scope.pagaNoDataArr = pagaDataArr;
+		$scope.postPageNoData();
+	};
+
+	$scope.postPageNoData = function() {
+		var serviceUrl = '/updatepageno';
+		var request = $http({
+			method: 'post',
+			url: serviceUrl,
+			data: $scope.pagaNoDataArr
+		});
+
+		request.success(function(response) {
+			if (response.STATUS === 'ok') {
+				alert('Records updated successfully');
+				$scope.oldpageno = '';
+				$scope.newpageno = '';
+			}
+		});
+	};
+
 	$scope.postData = function() {
 		var pageParams = $scope.pagaDataArr;
 		var serviceUrl = '/insertdata';

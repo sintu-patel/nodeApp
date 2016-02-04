@@ -7,7 +7,7 @@ block content
 					img(src='#{pageStyle.logoImg}')
 				span.session-user #{sessionuser}
 
-			didiv.course-command.float-right
+			div.course-command.float-right
 				a.help(href='/' title="Home page")
 					img(src='#{pageStyle.homeImg}')
 				a.help(href='/addpage' title="add page")
@@ -23,29 +23,20 @@ block content
 
 		div.home-content
 			div.title
-				span.label Page No:
-				input.page-no.blink-border(data-ng-model="pageno" type="text" data-ng-blur="updateForm()")
-				span.label.page-title-label Page Title:
-				input.page-title(data-ng-model="pagetitle" type="text")
+				div Change the order of pages
 			div.content
 				div.main-content.float-left
-					div.label Page content
-					textarea(data-ng-model="pagecontent")
-					div.preview
-						h1 Preview
-						div(data-ng-bind-html="pagecontent | dataAsHtml")
+					p This page associates the page no to their respective page titles
+					div.label Please enter page title
+					input(data-ng-model="oldpagetitle" type="text")
 
 				div.right-section.float-right
-					div.transcript
-						div.label Page image url
-						textarea(data-ng-model="keyPoints")
-						div.preview
-						h1 Preview
-						div(data-ng-bind-html="keyPoints | dataAsHtml")
+					div.label Please enter desired page no
+					input(data-ng-model="newpageno" type="text")
 
 			div.footer
 				div.controls
 					div.play.float-left
-						div(data-ng-click='addPage("update")')
+						div(data-ng-click='updatePageNo()')
 							img(src='#{pageStyle.playImg}' title="Submit")
 
