@@ -14,10 +14,13 @@ How to use this app.
 1. Take a pull from https://github.com/sintu-patel/nodeApp.git
 2. Open command prompt in nodeApp directory
 3. Run npm install
-4. Run node ./bin/www
-5. Visit http://localhost:3001/ in browser
-6. Register username
-7. Login with username and password
+4. Run bower install
+5. Run gulp
+6. Run gulp watch
+7. Run node ./bin/www
+8. Visit http://localhost:3001/ in browser
+9. Register username
+10. Login with username and password
 
 How to run css unit test
 To run the tests:
