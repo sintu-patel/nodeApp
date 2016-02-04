@@ -14,6 +14,8 @@ block content
 					img(src='#{pageStyle.editImg}')
 				a.help(href='/updatepage' title="update page")
 					img(src='#{pageStyle.updateImg}')
+				a.help(href='/sortpages' title="Sort page")
+					img(src='#{pageStyle.sortImg}')
 				a.help(href='https://github.com/sintu-patel/nodeApp' title="get the repository")
 					img(src='#{pageStyle.helpImg}')
 				a.help(href='/logout' title="Logout")
@@ -49,7 +51,7 @@ block content
 						ul.lesson-list(data-ng-show="menuState == 'visible'")
 							each lesson in appData
 								li.lesson(data-ng-click='showPage("#{lesson.pageNo}")' data-ng-class='{"active": currentPage == #{lesson.pageNo}}')
-									span #{lesson.pageTitle}
+									span #{lesson.pageNo} #{lesson.pageTitle}
 					div.open-menu.float-left(data-ng-click='toggleMenu()' data-ng-class='{"active": menuState == "visible"}')
 
 			div.active-users

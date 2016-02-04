@@ -17,6 +17,8 @@ var registeruser = require('./routes/registeruser');
 var validatelogin = require('./routes/validatelogin');
 var validateusername = require('./routes/validateusername');
 var logout = require('./routes/logout');
+var sortpages = require('./routes/sortpages');
+var updatepageno = require('./routes/updatepageno');
 
 var app = express();
 
@@ -56,6 +58,8 @@ app.use('/registeruser', registeruser);
 app.use('/validatelogin', validatelogin);
 app.use('/validateusername', validateusername);
 app.use('/logout', logout);
+app.use('/sortpages', sortpages);
+app.use('/updatepageno', updatepageno);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
